@@ -1,4 +1,3 @@
-import type React from 'react';
 import type Candidate from '../interfaces/Candidate.interface';
 import { ImCross } from 'react-icons/im';
 import { CgPlayListAdd } from 'react-icons/cg';
@@ -9,7 +8,6 @@ type CandidateCardProps = {
     onPotentialList?: boolean | null;
     removeFromStorage?:
       | ((
-          e: React.MouseEvent<SVGSVGElement, MouseEvent>,
           currentlyOnPotentialList: boolean | null | undefined,
           login: string | null
         ) => void)
@@ -22,6 +20,8 @@ type CandidateCardProps = {
     onPotentialList,
     removeFromStorage,
   }: CandidateCardProps) => {
+
+    
     return (
       <>
         {currentCandidate?.Name ? (
@@ -30,24 +30,18 @@ type CandidateCardProps = {
             <img src={`${currentCandidate.Image}`} alt={`${currentCandidate.Name}`} className='candidate-image' />
           </figure>
           <article className='details'>
-            <h2 className='candidate-name'>{currentCandidate.Name}</h2>
-            <p className='candidate-login'>({currentCandidate.Login})</p>
-            <p><strong>Location:</strong> {currentCandidate.Location}</p>
-            <p><strong>Email:</strong> {currentCandidate.Email}</p>
-            <p><strong>Company:</strong> {currentCandidate.Company}</p>
-            <p><strong>Bio:</strong> {currentCandidate.Bio}</p>
+          <h2 className='candidate-name'>{currentCandidate.Name || 'No Name Provided'}</h2>
+            <p className='candidate-login'>({currentCandidate.Login || 'Unknown Login'})</p>
+            <p><strong>Location:</strong> {currentCandidate.Location || 'Location not available'}</p>
+            <p><strong>Email:</strong> {currentCandidate.Email || 'N/A'}</p>
+            <p><strong>Company:</strong> {currentCandidate.Company || 'Company not specified'}</p>
+            <p><strong>Bio:</strong> {currentCandidate.Bio || 'No bio available'}</p>
           </article>
           <aside className='icons'>
             {onPotentialList ? (
               <ImCross
                 className='remove-icon'
-                onClick={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) =>
-                  removeFromStorage?.(
-                    e,
-                    onPotentialList,
-                    currentCandidate.Name
-                  )
-                }
+                onClick={() => removeFromStorage?.(onPotentialList, currentCandidate.Login)}
               />
             ) : (
               <CgPlayListAdd
