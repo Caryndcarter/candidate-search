@@ -52,9 +52,8 @@ const CandidateSearch = () => {
     fetchCandidateData();
   }, [fetchCandidateData]);
 
-  useEffect(() => {
-    console.log("Updated candidate: ", currentCandidate);
-  }, [currentCandidate]); // Add a log here to see when the candidate is updated
+
+
 
 // Add candidate to potential list and fetch new candidate
 const addToPotentialList = useCallback(async () => {
@@ -73,7 +72,7 @@ const addToPotentialList = useCallback(async () => {
 }, [currentCandidate, fetchCandidateData]);
 
 
- // Remove from potential list logic
+
  const removeFromStorage= async (
   currentlyOnPotentialList: boolean | null | undefined,
   login: string | null
@@ -94,6 +93,18 @@ const addToPotentialList = useCallback(async () => {
   // Fetch a new candidate after removing the current one
   await fetchCandidateData();
 };
+
+
+const onPotentialList = useCallback(() => {
+  const storedPotentialCandidates = localStorage.getItem('potentialCandidates');
+  if (storedPotentialCandidates) {
+    const parsedPotentialCandidates: Candidate[] = JSON.parse(storedPotentialCandidates);
+    // Check if the current candidate's login is already in the list
+    return parsedPotentialCandidates.some(candidate => candidate.Login === currentCandidate.Login);
+  }
+  return false;
+}, [currentCandidate]);
+
  
 
   return (
@@ -102,7 +113,7 @@ const addToPotentialList = useCallback(async () => {
       <CandidateCard
         currentCandidate={currentCandidate}
         addToPotentialList={addToPotentialList}
-        onPotentialList={false}
+        onPotentialList={onPotentialList()}
         removeFromStorage={removeFromStorage}
       />
     </>

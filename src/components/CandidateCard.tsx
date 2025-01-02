@@ -24,14 +24,14 @@ type CandidateCardProps = {
     
     return (
       <>
-        {currentCandidate?.Name ? (
+        {currentCandidate?.Login ? (
           <section className='candidateCard'>
           <figure className='image-container'>
             <img src={`${currentCandidate.Image}`} alt={`${currentCandidate.Name}`} className='candidate-image' />
           </figure>
           <article className='details'>
           <h2 className='candidate-name'>{currentCandidate.Name || 'No Name Provided'}</h2>
-            <p className='candidate-login'>({currentCandidate.Login || 'Unknown Login'})</p>
+            <p><strong>Login:</strong> {currentCandidate.Login|| 'Unknown Login'}</p>
             <p><strong>Location:</strong> {currentCandidate.Location || 'Location not available'}</p>
             <p><strong>Email:</strong> {currentCandidate.Email || 'N/A'}</p>
             <p><strong>Company:</strong> {currentCandidate.Company || 'Company not specified'}</p>
