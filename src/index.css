@@ -43,6 +43,74 @@ h1 {
   line-height: 1.1;
 }
 
+
+/* Candidate card styling */
+.candidateCard {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.candidate-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+
+.candidate-name {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.candidate-login {
+  font-size: 18px;
+  color: #555;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.add-icon, .remove-icon {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.remove-icon {
+  color: red;
+}
+
+.add-icon {
+  color: green;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

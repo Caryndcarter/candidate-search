@@ -6,11 +6,6 @@ const Nav = () => {
   // TODO: Add necessary code to display the navigation bar and link between the pages (none of this was here, not the import statement or anything after return)
   return (
     <nav>
-    <h1>
-      <Link to='/' id='logo'>
-        Candidate Search
-      </Link>
-    </h1>
     <ul className='nav nav-tabs'>
       <li className='nav-item'>
         <h2>
