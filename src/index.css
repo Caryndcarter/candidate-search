@@ -207,3 +207,49 @@ strong {
   font-weight: bold; 
   color: #222; 
 }
+
+
+/* Candidate row styling */
+.candidate-row {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  align-items: center; /* Center items vertically */
+}
+
+.candidate-column {
+  flex: 1;
+}
+
+.remove-column {
+  flex: 0; /* Prevent the remove column from stretching */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.candidate-column strong {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.candidate-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.remove-icon {
+  color: red;
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.remove-icon:hover {
+  color: darkred;
+}

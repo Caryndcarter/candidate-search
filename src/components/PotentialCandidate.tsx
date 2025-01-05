@@ -1,6 +1,7 @@
 import React from 'react';
 import type Candidate from '../interfaces/Candidate.interface';
 import { ImMinus } from 'react-icons/im'; 
+
 interface PotentialCandidateProps {
   potentialCandidate: Candidate;
   removeFromStorage: (login: string | null) => void; 

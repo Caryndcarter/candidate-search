@@ -78,47 +78,9 @@ const addToPotentialList = useCallback(async () => {
       <CandidateCard
         currentCandidate={currentCandidate}
         addToPotentialList={addToPotentialList}
-        //onPotentialList={onPotentialList()}
-        //removeFromStorage={removeFromStorage}
       />
     </>
   );
 };
 
 export default CandidateSearch;
-
-
-
-/*
- const removeFromStorage= async (
-  currentlyOnPotentialList: boolean | null | undefined,
-  login: string | null
-) => {
-  if (currentlyOnPotentialList && login) {
-    const storedPotentialCandidates = localStorage.getItem('potentialCandidates');
-    if (storedPotentialCandidates) {
-      const parsedPotentialCandidates: Candidate[] = JSON.parse(storedPotentialCandidates);
-      const updatedCandidates = parsedPotentialCandidates.filter(
-        (candidate) => candidate.Login !== login
-      );
-      localStorage.setItem('potentialCandidates', JSON.stringify(updatedCandidates));
-
-      console.log('Removed from potential list:', login);
-    }
-  }
-
-  // Fetch a new candidate after removing the current one
-  await fetchCandidateData();
-};
-
-
-const onPotentialList = useCallback(() => {
-  const storedPotentialCandidates = localStorage.getItem('potentialCandidates');
-  if (storedPotentialCandidates) {
-    const parsedPotentialCandidates: Candidate[] = JSON.parse(storedPotentialCandidates);
-    // Check if the current candidate's login is already in the list
-    return parsedPotentialCandidates.some(candidate => candidate.Login === currentCandidate.Login);
-  }
-  return false;
-}, [currentCandidate]);
-*/
