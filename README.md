@@ -23,8 +23,8 @@ Begin by running ``npm run dev`` in the command line and then go to localhost:51
 
 From there you will see your first randomly chosen candidate.  Hit the X to decline to add the candidate to the potential list.  The page will refresh with a new candidate.  Or, hit the button to add the candidate to your list of potential candidates.  The page will refresh with a new candidate.  Continue adding or declining as desired.  Then go to the Potential Candidates page to view your candidates and remove them as desired.    
 
-![Demo](./assets/Candidate.png)
-![Demo](./assets/CandidateList.png)
+![Demo](./Assets/Candidate.png)
+![Demo](./Assets/CandidateList.png)
 
 
 ## License
