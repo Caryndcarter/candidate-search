@@ -4,9 +4,9 @@ import PotentialCandidate from '../components/PotentialCandidate';
 import type Candidate from '../interfaces/Candidate.interface';
 
 
-const removeFromStorage= async (
+const removeFromStorage =  (
   login: string | null, 
-  
+  setCandidates: React.Dispatch<React.SetStateAction<Candidate[]>>
 ) => {
   if (login) {
     const storedPotentialCandidates = localStorage.getItem('potentialCandidates');
@@ -16,6 +16,9 @@ const removeFromStorage= async (
         (candidate) => candidate.Login !== login
       );
       localStorage.setItem('potentialCandidates', JSON.stringify(updatedCandidates));
+
+ // Update the state to trigger a re-render with the new list of candidates
+      setCandidates(updatedCandidates);
 
       console.log('Removed from potential list:', login);
     }
@@ -33,6 +36,11 @@ const SavedCandidates = () => {
     }
   }, []);
 
+
+  const handleRemoveFromStorage = (login: string | null) => {
+    removeFromStorage(login, setCandidates);
+  };
+
   return (
     <>
       <h1>Potential Candidates</h1>
@@ -41,7 +49,7 @@ const SavedCandidates = () => {
           <PotentialCandidate
             key={candidate.Login}
             potentialCandidate={candidate}
-            removeFromStorage={removeFromStorage}
+            removeFromStorage={handleRemoveFromStorage} 
           />
         ))}
       </div>
