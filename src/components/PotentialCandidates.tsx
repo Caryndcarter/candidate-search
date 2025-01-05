@@ -1,36 +1,98 @@
+import React from 'react';
 import type Candidate from '../interfaces/Candidate.interface';
-import CandidateCard from './CandidateCard';
-
-interface PotentialCandidatesProps {
-  potentialCandidates: Candidate[];
-  removeFromStorage:
-    | ((
-        currentlyOnPotnentialList: boolean | null | undefined,
-        login: string | null
-      ) => void)
-    | null;
+import { ImMinus } from 'react-icons/im'; 
+interface PotentialCandidateProps {
+  potentialCandidate: Candidate;
+  removeFromStorage: (login: string | null) => void; 
 }
 
-const PotentialCandidatesList = ({
-  potentialCandidates,
+const PotentialCandidate = ({
+  potentialCandidate,
   removeFromStorage,
-}: PotentialCandidatesProps) => {
-  console.log(potentialCandidates);
+}: PotentialCandidateProps) => {
+  console.log(potentialCandidate);
 
   return (
-    <>
-      <ul>
-        {potentialCandidates.map((candidate) => (
-          <CandidateCard
-            currentCandidate={candidate}
-            key={candidate.Login}
-            onPotentialList={true}
-            removeFromStorage={removeFromStorage}
+    <div className="candidate-row">
+      <div className="candidate-column">
+        <strong>Image:</strong>
+        <img
+          src={`${potentialCandidate.Image}`}
+          alt={`${potentialCandidate.Name}`}
+          className='candidate-image'
           />
-        ))}
-      </ul>
-    </>
+      </div>
+      <div className="candidate-column">
+        <strong>Name:</strong>
+        <p>{potentialCandidate.Name || 'No Name Provided'}</p>
+      </div>
+      <div className="candidate-column">
+        <strong>Login:</strong>
+        <p>{potentialCandidate.Login || 'Unknown Login'}</p>
+      </div>
+      <div className="candidate-column">
+        <strong>Email:</strong>
+        <p>{potentialCandidate.Email || 'N/A'}</p>
+      </div>
+      <div className="candidate-column">
+        <strong>Location:</strong>
+        <p>{potentialCandidate.Location || 'Location not available'}</p>
+      </div>
+      <div className="candidate-column">
+        <strong>Company:</strong>
+        <p>{potentialCandidate.Company || 'Company not specified'}</p>
+      </div>
+      <div className="candidate-column">
+        <strong>Bio:</strong>
+        <p>{potentialCandidate.Bio || 'No bio available'}</p>
+      </div>
+      <div className="candidate-column remove-column">
+        <ImMinus
+          className="remove-icon"
+          onClick={() => removeFromStorage(potentialCandidate.Login)}  
+        />
+      </div>
+    </div>
   );
 };
 
-export default PotentialCandidatesList;
+
+export default PotentialCandidate;
+    
+
+
+
+/*
+type CandidateCardProps = {
+  currentCandidate: Candidate;
+  addToPotentialList?: (() => void) | null;
+  onPotentialList?: boolean | null;
+  removeFromStorage?:
+    | ((
+        currentlyOnPotentialList: boolean | null | undefined,
+        login: string | null
+      ) => void)
+    | null;
+};
+
+const CandidateCard = ({
+  currentCandidate,
+  addToPotentialList,
+  onPotentialList,
+  removeFromStorage,
+}: CandidateCardProps) => {
+*/
+
+/*
+ {onPotentialList ? (
+              <ImCross
+                className='remove-icon'
+                onClick={() => removeFromStorage?.(onPotentialList, currentCandidate.Login)}
+              />
+            ) : (
+              <CgPlayListAdd
+                className='add-icon'
+                onClick={() => addToPotentialList?.()}
+              />
+            )}
+*/

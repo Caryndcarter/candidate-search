@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { searchGithub, searchGithubUser } from '../api/API';
 import CandidateCard from '../components/CandidateCard';
@@ -71,8 +72,24 @@ const addToPotentialList = useCallback(async () => {
   await fetchCandidateData(); 
 }, [currentCandidate, fetchCandidateData]);
 
+  return (
+    <>
+      <h1>Candidate Search</h1>
+      <CandidateCard
+        currentCandidate={currentCandidate}
+        addToPotentialList={addToPotentialList}
+        //onPotentialList={onPotentialList()}
+        //removeFromStorage={removeFromStorage}
+      />
+    </>
+  );
+};
+
+export default CandidateSearch;
 
 
+
+/*
  const removeFromStorage= async (
   currentlyOnPotentialList: boolean | null | undefined,
   login: string | null
@@ -104,20 +121,4 @@ const onPotentialList = useCallback(() => {
   }
   return false;
 }, [currentCandidate]);
-
- 
-
-  return (
-    <>
-      <h1>Candidate Search</h1>
-      <CandidateCard
-        currentCandidate={currentCandidate}
-        addToPotentialList={addToPotentialList}
-        onPotentialList={onPotentialList()}
-        removeFromStorage={removeFromStorage}
-      />
-    </>
-  );
-};
-
-export default CandidateSearch;
+*/

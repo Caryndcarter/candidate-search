@@ -131,6 +131,12 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.button-text {
+  font-size: 16px;
+  color: #555;
+
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
