@@ -44,15 +44,19 @@ const SavedCandidates = () => {
   return (
     <>
       <h1>Potential Candidates</h1>
-      <div className="candidate-list">
-        {candidates.map((candidate) => (
-          <PotentialCandidate
-            key={candidate.Login}
-            potentialCandidate={candidate}
-            removeFromStorage={handleRemoveFromStorage} 
-          />
-        ))}
-      </div>
+      {candidates.length === 0 ? (
+        <h2>No currently saved candidates.</h2> 
+      ) : (
+        <div className="candidate-list">
+          {candidates.map((candidate) => (
+            <PotentialCandidate
+              key={candidate.Login}
+              potentialCandidate={candidate}
+              removeFromStorage={handleRemoveFromStorage}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };
