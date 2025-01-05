@@ -1,4 +1,3 @@
-import React from 'react';
 import type Candidate from '../interfaces/Candidate.interface';
 import { ImCross } from 'react-icons/im';
 import { CgPlayListAdd } from 'react-icons/cg';

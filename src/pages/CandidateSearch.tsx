@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { searchGithub, searchGithubUser } from '../api/API';
 import CandidateCard from '../components/CandidateCard';
