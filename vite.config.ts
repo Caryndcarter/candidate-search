@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 10000, // Specify the port Render expects
+    host: '0.0.0.0'  
   },
 });
