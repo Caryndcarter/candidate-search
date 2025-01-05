@@ -62,6 +62,14 @@ h1 {
   margin-bottom: 20px;
 }
 
+.candidate-card-image {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
 .candidate-image {
   width: 200px;
   height: 200px;
@@ -104,6 +112,12 @@ h1 {
   color: green;
 }
 
+/* Add hover effect */
+.add-icon:hover, .remove-icon:hover {
+  background-color: #f2f2f2;
+}
+
+
 p {
   font-size: 16px;
   line-height: 1.5;
@@ -131,10 +145,43 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.button-text {
-  font-size: 16px;
-  color: #555;
+/* Button container styling */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; 
+}
 
+.button-container .add-icon, .button-container .remove-icon {
+  font-size: 30px;  /* Standardize icon size */
+  padding: 15px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-container .remove-icon {
+  color: red;
+}
+
+.button-container .add-icon {
+  color: green;
+}
+
+.button-container .add-icon:hover, .button-container .remove-icon:hover {
+  background-color: #ddd;
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+
+.button-text {
+  font-size: 16px;  
+  color: #555;
+  font-weight: 500;
+  margin-top: 5px;  
 }
 
 @media (prefers-color-scheme: light) {
@@ -222,10 +269,13 @@ strong {
 
 .candidate-column {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
 }
 
 .remove-column {
-  flex: 0; /* Prevent the remove column from stretching */
+  flex: 0; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,13 +293,72 @@ strong {
   border-radius: 50%;
 }
 
-.remove-icon {
-  color: red;
-  cursor: pointer;
-  font-size: 20px;
-  transition: color 0.3s;
+.candidate-row {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  align-items: flex-start; /* Align items to the top */
 }
 
-.remove-icon:hover {
-  color: darkred;
+/* Candidate column */
+.candidate-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Align items to the top */
+}
+
+.candidate-column strong {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.candidate-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.remove-column {
+  display: flex;
+  flex-direction: column; /* Stack the label and button vertically */
+  align-items: center; /* Center align the button */
+  justify-content: center;
+}
+
+.remove-label {
+  font-weight: bold;
+  color: red;
+  margin-bottom: 5px; /* Space between label and button */
+  text-align: center;
+}
+
+/* Remove button styling */
+.remove-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: red; 
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 18px; 
+  transition: background-color 0.3s, transform 0.2s; /* Animation */
+}
+
+.remove-icon-wrapper:hover {
+  background-color: darkred; /* Darken the button on hover */
+  transform: scale(1.1); /* Add slight zoom effect on hover */
+}
+
+/* Remove icon */
+.minus-sign {
+  font-size: 20px;
+  font-weight: bold;
 }

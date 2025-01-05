@@ -20,7 +20,7 @@ const CandidateCard = ({
                 <img
                   src={`${currentCandidate.Image}`}
                   alt={`${currentCandidate.Name}`}
-                  className='candidate-image'
+                  className='candidate-card-image'
                 />
               </figure>
               <article className='details'>
@@ -65,7 +65,7 @@ const CandidateCard = ({
                   />
                   <span className='button-text'>Add to List</span>
                 </div>
-                
+
               </aside>
             </section>
           ) : (

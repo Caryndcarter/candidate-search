@@ -1,6 +1,5 @@
 import React from 'react';
 import type Candidate from '../interfaces/Candidate.interface';
-import { ImMinus } from 'react-icons/im'; 
 
 interface PotentialCandidateProps {
   potentialCandidate: Candidate;
@@ -47,11 +46,14 @@ const PotentialCandidate = ({
         <strong>Bio:</strong>
         <p>{potentialCandidate.Bio || 'No bio available'}</p>
       </div>
-      <div className="candidate-column remove-column">
-        <ImMinus
-          className="remove-icon"
-          onClick={() => removeFromStorage(potentialCandidate.Login)}  
-        />
+       <div className="candidate-column remove-column">
+        <strong>Remove:</strong>
+        <div
+          className="remove-icon-wrapper"
+          onClick={() => removeFromStorage(potentialCandidate.Login)}
+        >
+          <span className="minus-sign">-</span>
+        </div>
       </div>
     </div>
   );
